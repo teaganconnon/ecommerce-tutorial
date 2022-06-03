@@ -1,6 +1,9 @@
 import React from "react";
-import { Route } from "react-router-dom";
-import Header from "./components/Header";
+import { Route, Routes } from "react-router-dom";
+//layouts
+import MainLayout from "./layouts/MainLayout";
+import HomepageLayout from "./layouts/HomepageLayout";
+//pages
 import Homepage from "./pages/Homepage";
 import Registration from "./pages/Registration";
 import "./default.scss";
@@ -8,11 +11,14 @@ import "./default.scss";
 function App() {
   return (
     <div className="App">
-      <Header />
-      <div className="main">
-        <Route path="/" component={Homepage} />
-        <Route path="/registration" component={Registration} />
-      </div>
+      <Routes>
+        <Route element={<HomepageLayout />}>
+          <Route path="/" element={<Homepage />} />
+        </Route>
+        <Route element={<MainLayout />}>
+          <Route path="/registration" element={<Registration />} />
+        </Route>
+      </Routes>
     </div>
   );
 }
