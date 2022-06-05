@@ -3,10 +3,10 @@ import Header from "./../components/Header";
 import Footer from "./../components/Footer";
 import { Outlet } from "react-router-dom";
 
-const HomepageLayout = () => {
+const HomepageLayout = (props) => {
   return (
     <div className="fullHeight">
-      <Header />
+      <Header {...props} />
       <Outlet />
       <Footer />
     </div>
